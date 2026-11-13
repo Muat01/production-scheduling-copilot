@@ -1,0 +1,6 @@
+streamlit>=1.50
+ortools>=9.10
+numpy
+pandas
+plotly
+pytest
