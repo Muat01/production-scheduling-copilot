@@ -1,10 +1,12 @@
 [theme]
 base = "dark"
 primaryColor = "#22C98A"
-backgroundColor = "#0E1311"
-secondaryBackgroundColor = "#171E1B"
+backgroundColor = "#0B100E"
+secondaryBackgroundColor = "#131A17"
 textColor = "#EEF2EF"
-font = "sans serif"
+font = "Inter:https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+codeFont = "'JetBrains Mono':https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+baseRadius = "12px"
 
 [server]
 headless = true
