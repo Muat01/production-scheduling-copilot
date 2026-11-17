@@ -47,21 +47,32 @@ def _app():
     return at
 
 
-def test_app_runs():
+PAGES = ["Overview", "Planner", "Rules vs optimal", "Disruptions", "Benchmarks", "Method & sources"]
+
+
+def test_app_runs_every_page():
     at = _app()
     assert not at.exception, at.exception
-    assert len(at.tabs) == 4
-    assert any("Copilot" in m.value for m in at.markdown)
+    assert any("Planners speak in plain words" in m.value for m in at.markdown)
+    for p in PAGES[1:]:
+        at.radio(key="nav").set_value(p).run()
+        assert not at.exception, (p, at.exception)
+        assert any(p.split(" &")[0] in m.value for m in at.markdown), p
 
 
 def test_app_chat_and_buttons():
     at = _app()
+    at.radio(key="nav").set_value("Planner").run()
     at.chat_input[0].set_value("Mill down at 80 for 90").run()
     assert not at.exception, at.exception
     assert any("Mill down 80–170" in m.value for m in at.markdown)
-    at.button(key="ex1").click().run()            # rush J4
+    at.button(key="ex2").click().run()            # rush J4
     assert not at.exception, at.exception
-    at.selectbox(key="rule_pick").set_value("EDD").run()
+    assert any("Rush J4" in m.value for m in at.markdown)
+    at.button(key="ex7").click().run()            # undo
     assert not at.exception, at.exception
-    at.radio(key="objective").set_value("makespan").run()
+    at.selectbox(key="seed").set_value(3).run()
+    assert not at.exception, at.exception
+    at.radio(key="nav").set_value("Rules vs optimal").run()
+    at.selectbox(key="rule_seed").set_value(5).run()
     assert not at.exception, at.exception
