@@ -1,5 +1,9 @@
 # Production Scheduling Copilot
 
+[![tests](https://github.com/Muat01/production-scheduling-copilot/actions/workflows/tests.yml/badge.svg)](https://github.com/Muat01/production-scheduling-copilot/actions/workflows/tests.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22C98A.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)](https://www.python.org)
+
 **Tell the planner what happened on the shop floor in plain words. An optimisation solver builds the new plan, a checker verifies it, and the copilot explains what changed.**
 
 ![Re-planning after a breakdown](docs/gantt_after_breakdown.png)
